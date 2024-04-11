@@ -1,5 +1,13 @@
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        List<Integer> list = new ArrayList<>();
+        count(list);
+    }
+    public static int count(List<?> list) {
+        return list.size();
     }
 }
