@@ -16,8 +16,13 @@ public class Main {
         for(Integer e : list2){
             System.out.println(e);
         }
-    }
-    public static int count(List<?> list) {
-        return list.size();
+
+        Integer x = 4;
+        Double y = 4.5;
+        Class xClass = x.getClass();
+        Class yClass = y.getClass();
+        if(xClass.equals(yClass)) {
+
+        }
     }
 }
