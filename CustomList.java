@@ -35,6 +35,12 @@ public class CustomList<T> extends AbstractList<T> {
 
     public Stream<T> stream() {
         Stream.Builder<T> streamBuilder = Stream.builder();
+
+        for(T item : this) {
+            streamBuilder.accept(item);
+        }
+
+        return streamBuilder.build();
     }
 
     @Override

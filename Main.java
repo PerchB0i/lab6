@@ -6,13 +6,12 @@ import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new CustomList<>();
         list.add(3);
         list.add(4);
         list.add(5);
 
-        List<Integer> list2 = list.stream().filter((item) -> item < 3).collect(Collectors.toList());
-
+        List<Integer> list2 = list.stream().filter((item) -> item > 3).collect(Collectors.toList());
 
         for(Integer e : list2){
             System.out.println(e);
