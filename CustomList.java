@@ -16,15 +16,46 @@ public class CustomList<T> extends AbstractList<T> {
 
     @Override
     public int size() {
-        return 0;
+        int size = 1;
+        Node tmp = new Node();
+        tmp.value = null;
+        tmp.next = null;
+        if(this.end == null){
+            return 0;
+        } if(this.end == this.start) {
+            return 1;
+        } else {
+            while (tmp != this.end) {
+                tmp.value = tmp.next.value;
+                tmp.next = tmp.next.next;
+                size += 1;
+            }
+        }
+
+        return size;
     }
 
     @Override
     public T get(int index) {
-        return null;
+        if(this.end == null){
+            throw new NoSuchElementException();
+        }
+        Node tmp = start;
+        if(this.end == this.start) {
+            tmp.value = this.start.value;
+        } if(index < size()) {
+            for (int i = 0; i <= index; i++) {
+
+                tmp.value = tmp.next.value;
+                tmp.next = tmp.next.next;
+            }
+        } else {
+            throw new NoSuchElementException();
+        }
+        return tmp.value;
     }
 
-    public void AddLast(T value) {
+    public void addLast(T value) {
         Node newNode = new Node();
         newNode.value = value;
         newNode.next = null;
@@ -102,6 +133,11 @@ public class CustomList<T> extends AbstractList<T> {
             this.end = tmp;
             return value;
         }
+    }
+
+    public boolean add(T t) {
+        this.addLast(t);
+        return true;
     }
 
 }
